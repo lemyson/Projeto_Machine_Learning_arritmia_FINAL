@@ -15,6 +15,7 @@ from LinearSVC import modelo_LinearSVC
 from DummyClassifier import modelo_DummyClassifier
 from SVM import modelo_SVM
 from DecisionTreeClassifier import modelo_DecisionTreeClassifier
+from teste import modelo_teste
 
 coracao = pd.read_csv("coracao")
 mapa = {
@@ -26,12 +27,14 @@ coracao = coracao.rename(columns=mapa)
 #print(coracao)
 x = coracao[["idade","anemia","creatinina fosfoquinase","diabetes","fração de ejeção","pressão alta","plaquetas","creatinina sérica","soro sódico","sexo","fuma","tempo"]]
 y = coracao["Evento de morte"]
-xt = coracao[["idade","anemia","diabetes","pressão alta","sexo","fuma","tempo"]]
+x1 = coracao[["idade","anemia","diabetes","pressão alta","sexo","fuma","tempo"]]
+y1 = coracao["Evento de morte"]
 
 modelo_LinearSVC(x,y)
 modelo_DummyClassifier(x,y)
 modelo_SVM(x,y)
 modelo_DecisionTreeClassifier(x,y)
+modelo_teste(x1,y1)
 
 
 
